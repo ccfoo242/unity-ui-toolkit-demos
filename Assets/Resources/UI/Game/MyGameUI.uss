@@ -25,3 +25,10 @@
 MySpecialButton:hover {
     -unity-background-image-tint-color: rgb(235, 188, 0);
 }
+
+.icon {
+    width: 100%;
+    height: 100%;
+    transition-property: rotate;
+    transition-duration: 0.25s;
+}
