@@ -73,13 +73,11 @@ public class MySpecialButton : Button
 			Debug.LogWarning($"{GetType().Name} - Missing required child element 'Icon'");
 		}
 		
-		clicked += OnButtonClicked;
 		_rotateButton.clicked += OnRotateButtonClicked;
 	}
 
 	private void OnDetatchFromPanelEvent(DetachFromPanelEvent evt)
 	{
-		clicked -= OnButtonClicked;
 		_rotateButton.clicked -= OnRotateButtonClicked;
 	}
 
@@ -95,9 +93,4 @@ public class MySpecialButton : Button
 			Debug.LogError($"{GetType().Name} - Missing required child element 'Icon'");
         }
 	}
-
-    private void OnButtonClicked()
-    {
-		Debug.Log($"{name} - OnButtonClick() - {MySpecialType}/{Rotation}");
-    }
 }

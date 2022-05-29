@@ -311,8 +311,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1410164829}
   - component: {fileID: 1410164828}
+  - component: {fileID: 1410164831}
+  - component: {fileID: 1410164830}
   m_Layer: 5
-  m_Name: UIDocument
+  m_Name: UiManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -349,3 +351,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1410164830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1410164827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e310f377acaf1d4428be21f4839d975a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _messageBoxTemplate: {fileID: 9197481963319205126, guid: 17408f71378b0ec409a3bb8a4973fd31, type: 3}
+  _captionText: Test Caption
+  _text: Test Text
+  _messageBoxButtons: 0
+  _messageBoxIcon: 1
+  _informationSprite: {fileID: 21300000, guid: 1824c4726eb028b489e1790515a7437e, type: 3}
+  _warningSprite: {fileID: 21300000, guid: 22321f62ad6ea42459783c71e45747b3, type: 3}
+  _errorSprite: {fileID: 21300000, guid: 280c9c4d95465894f891a7b62764c2af, type: 3}
+  _questionSprite: {fileID: 21300000, guid: 684989c63d9e2894ba27b122871872eb, type: 3}
+  _width: 700
+  _height: 600
+  _useScreenSize: 0
+--- !u!114 &1410164831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1410164827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56f9caec6a58cbc4ab88bd2184ec39e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
