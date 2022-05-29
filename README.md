@@ -3,7 +3,7 @@ A collection of things I've learned while building a game UI
 
 Built with Unity 2021.3.2
 
-**Subjects that each control includes*
+**Subjects that each control includes**
 
 * **MySpecialButton**
    * create a custom element with uxml template
