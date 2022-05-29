@@ -7,6 +7,8 @@ public class MessageBoxController : MonoBehaviour
     [SerializeField] private VisualTreeAsset _messageBoxTemplate;
     [SerializeField] private string _captionText;
     [SerializeField] private string _text;
+    [SerializeField] private string _okButtonText = "Ok";
+    [SerializeField] private string _cancelButtonText = "Cancel";
     [SerializeField] private MessageBoxButtons _messageBoxButtons;
     [SerializeField] private MessageBoxIcon _messageBoxIcon;
     [SerializeField] private Sprite _informationSprite;
@@ -54,7 +56,9 @@ public class MessageBoxController : MonoBehaviour
         _backgroundPanel = _root.Q<VisualElement>(BackgroundPanelName) ?? throw new ArgumentNullException(nameof(_messageBoxPanel));
         _messageBoxPanel = _root.Q<VisualElement>(MessageBoxPanelName) ?? throw new ArgumentNullException(nameof(_messageBoxPanel));
         _okButton = _root.Q<Button>(OkButtonName) ?? throw new ArgumentNullException(nameof(_okButton));
+        _okButton.text = _okButtonText;
         _cancelButton = _root.Q<Button>(CancelButtonName) ?? throw new ArgumentNullException(nameof(_cancelButton));
+        _cancelButton.text = _cancelButtonText;
         _closeButton = _root.Q<Button>(CloseButtonName) ?? throw new ArgumentNullException(nameof(_closeButton));
         _captionLabel = _root.Q<Label>(CaptionLabelName) ?? throw new ArgumentNullException(nameof(_captionLabel));
         _captionLabel.text = _captionText;

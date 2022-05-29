@@ -366,6 +366,8 @@ MonoBehaviour:
   _messageBoxTemplate: {fileID: 9197481963319205126, guid: 17408f71378b0ec409a3bb8a4973fd31, type: 3}
   _captionText: Test Caption
   _text: Test Text
+  _okButtonText: Yes, 3
+  _cancelButtonText: No, 4
   _messageBoxButtons: 0
   _messageBoxIcon: 1
   _informationSprite: {fileID: 21300000, guid: 1824c4726eb028b489e1790515a7437e, type: 3}
