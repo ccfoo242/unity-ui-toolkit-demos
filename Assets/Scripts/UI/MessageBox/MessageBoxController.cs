@@ -7,8 +7,8 @@ public class MessageBoxController : MonoBehaviour
     [SerializeField] private VisualTreeAsset _messageBoxTemplate;
     [SerializeField] private string _captionText;
     [SerializeField] private string _text;
-    [SerializeField] private string _okButtonText = "Ok";
-    [SerializeField] private string _cancelButtonText = "Cancel";
+    [SerializeField] public string _okButtonText = "Ok";
+    [SerializeField] public string _cancelButtonText = "Cancel";
     [SerializeField] private MessageBoxButtons _messageBoxButtons;
     [SerializeField] private MessageBoxIcon _messageBoxIcon;
     [SerializeField] private Sprite _informationSprite;
@@ -56,14 +56,10 @@ public class MessageBoxController : MonoBehaviour
         _backgroundPanel = _root.Q<VisualElement>(BackgroundPanelName) ?? throw new ArgumentNullException(nameof(_messageBoxPanel));
         _messageBoxPanel = _root.Q<VisualElement>(MessageBoxPanelName) ?? throw new ArgumentNullException(nameof(_messageBoxPanel));
         _okButton = _root.Q<Button>(OkButtonName) ?? throw new ArgumentNullException(nameof(_okButton));
-        _okButton.text = _okButtonText;
         _cancelButton = _root.Q<Button>(CancelButtonName) ?? throw new ArgumentNullException(nameof(_cancelButton));
-        _cancelButton.text = _cancelButtonText;
         _closeButton = _root.Q<Button>(CloseButtonName) ?? throw new ArgumentNullException(nameof(_closeButton));
         _captionLabel = _root.Q<Label>(CaptionLabelName) ?? throw new ArgumentNullException(nameof(_captionLabel));
-        _captionLabel.text = _captionText;
         _textLabel = _root.Q<Label>(TextLabelName) ?? throw new ArgumentNullException(nameof(_textLabel));
-        _textLabel.text = _text;
         _icon = _root.Q<VisualElement>(IconName) ?? throw new ArgumentNullException(nameof(_icon));
 
         if (_width == 0f)
@@ -85,6 +81,8 @@ public class MessageBoxController : MonoBehaviour
         _textLabel.text = _text;
         _messageBoxButtons = buttons ?? _messageBoxButtons;
         _messageBoxIcon = icon ?? _messageBoxIcon;
+        _okButton.text = _okButtonText;
+        _cancelButton.text = _cancelButtonText;
         SetSizeAndLocation();
         SetButtonHandlers();
         SetIconSprite();
@@ -94,8 +92,10 @@ public class MessageBoxController : MonoBehaviour
     private void SetButtonHandlers()
     {
         _okButton.clicked += OnOkButtonClicked;
+
         if (_messageBoxButtons == MessageBoxButtons.OkCancel)
         {
+            // Only subscribe if cancel  
             _cancelButton.clicked += OnCancelButtonClicked;
             _cancelButton.RemoveFromClassList(HideButtonClassName);
             _cancelButton.AddToClassList(ButtonClassName);

@@ -3,18 +3,7 @@ using UnityEngine.UIElements;
 
 public class UiManager: MonoBehaviour
 {
-    private static UiManager _instance;
-    public static UiManager Instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                throw new UnityException("UIManager instance is null");
-            }
-            return _instance;
-        }
-    }
+    public static UiManager Instance { get; private set; }
 
     private UIDocument _uiDocument;
     private VisualElement _root;
@@ -23,6 +12,12 @@ public class UiManager: MonoBehaviour
 
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+            return;
+        }
+        Instance = this;
         _uiDocument = GetComponent<UIDocument>();
         _root = _uiDocument.rootVisualElement;
         _messageBox = GetComponent<MessageBoxController>();
